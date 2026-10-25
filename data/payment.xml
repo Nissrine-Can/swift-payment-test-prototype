@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sample ISO 20022 customer payment (pacs.008) for practice only. All names, banks and accounts are made up. -->
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08">
+  <FIToFICstmrCdtTrf>
+    <GrpHdr>
+      <MsgId>MSG-2026-0001</MsgId>
+      <CreDtTm>2026-10-05T09:30:00</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <SttlmInf>
+        <SttlmMtd>INDA</SttlmMtd>
+      </SttlmInf>
+    </GrpHdr>
+    <CdtTrfTxInf>
+      <PmtId>
+        <InstrId>INSTR-0001</InstrId>
+        <EndToEndId>INVOICE-4521</EndToEndId>
+        <UETR>3f2b8c1e-7d4a-4b9e-9c21-5a6f0e8d7b13</UETR>
+      </PmtId>
+      <IntrBkSttlmAmt Ccy="USD">5000.00</IntrBkSttlmAmt>
+      <IntrBkSttlmDt>2026-10-05</IntrBkSttlmDt>
+      <ChrgBr>SHAR</ChrgBr>
+      <Dbtr>
+        <Nm>Sample Trading LLC</Nm>
+        <PstlAdr>
+          <StrtNm>Main Street</StrtNm>
+          <BldgNb>12</BldgNb>
+          <PstCd>20110</PstCd>
+          <TwnNm>Manassas</TwnNm>
+          <Ctry>US</Ctry>
+        </PstlAdr>
+      </Dbtr>
+      <DbtrAgt>
+        <FinInstnId>
+          <BICFI>AAAAUS33</BICFI>
+        </FinInstnId>
+      </DbtrAgt>
+      <CdtrAgt>
+        <FinInstnId>
+          <BICFI>BBBBDEFFXXX</BICFI>
+        </FinInstnId>
+      </CdtrAgt>
+      <Cdtr>
+        <Nm>Example Supplies GmbH</Nm>
+        <PstlAdr>
+          <StrtNm>Hauptstrasse</StrtNm>
+          <BldgNb>5</BldgNb>
+          <PstCd>60311</PstCd>
+          <TwnNm>Frankfurt</TwnNm>
+          <Ctry>DE</Ctry>
+        </PstlAdr>
+      </Cdtr>
+    </CdtTrfTxInf>
+  </FIToFICstmrCdtTrf>
+</Document>

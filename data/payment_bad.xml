@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Broken sample on purpose: negative amount, wrong currency, short UETR, invalid BIC, unstructured address. -->
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08">
+  <FIToFICstmrCdtTrf>
+    <GrpHdr>
+      <MsgId>MSG-2026-0002</MsgId>
+      <CreDtTm>2026-10-05T09:45:00</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <SttlmInf>
+        <SttlmMtd>INDA</SttlmMtd>
+      </SttlmInf>
+    </GrpHdr>
+    <CdtTrfTxInf>
+      <PmtId>
+        <InstrId>INSTR-0002</InstrId>
+        <EndToEndId>INVOICE-4522</EndToEndId>
+        <UETR>12345</UETR>
+      </PmtId>
+      <IntrBkSttlmAmt Ccy="XYZ">-50.00</IntrBkSttlmAmt>
+      <IntrBkSttlmDt>2026-10-05</IntrBkSttlmDt>
+      <ChrgBr>SHAR</ChrgBr>
+      <Dbtr>
+        <Nm>Sample Trading LLC</Nm>
+        <PstlAdr>
+          <AdrLine>12 Main Street Manassas US</AdrLine>
+        </PstlAdr>
+      </Dbtr>
+      <DbtrAgt>
+        <FinInstnId>
+          <BICFI>123</BICFI>
+        </FinInstnId>
+      </DbtrAgt>
+      <CdtrAgt>
+        <FinInstnId>
+          <BICFI>BBBBDEFFXXX</BICFI>
+        </FinInstnId>
+      </CdtrAgt>
+      <Cdtr>
+        <Nm>Example Supplies GmbH</Nm>
+        <PstlAdr>
+          <TwnNm>Frankfurt</TwnNm>
+          <Ctry>DE</Ctry>
+        </PstlAdr>
+      </Cdtr>
+    </CdtTrfTxInf>
+  </FIToFICstmrCdtTrf>
+</Document>
