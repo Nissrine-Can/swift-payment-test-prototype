@@ -1,8 +1,8 @@
 #!/bin/bash
-# Run check_payment.py on every XML file in this folder, save the output,
+# Run check_payment.py on every XML file in /data, save the output,
 # and print a summary. Works in Git Bash and in a Linux Docker container.
 
-cd "$(dirname "$0")" || exit 1
+cd "$(dirname "$0")/.." || exit 1
 
 # Use python3 if it exists (Linux), otherwise python (Windows Git Bash)
 if command -v python3 >/dev/null 2>&1; then
@@ -21,9 +21,9 @@ LOG="$RESULTS_DIR/run.log"
 passed=0
 failed=0
 
-for file in *.xml; do
+for file in data/*.xml; do
   echo "----------------------------------------" | tee -a "$LOG"
-  "$PYTHON" check_payment.py "$file" | tee -a "$LOG"
+  "$PYTHON" scripts/check_payment.py "$file" | tee -a "$LOG"
   # PIPESTATUS[0] is Python's exit code; plain $? would be tee's (always 0)
   if [ "${PIPESTATUS[0]}" -eq 0 ]; then
     passed=$((passed + 1))
