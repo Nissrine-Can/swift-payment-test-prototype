@@ -1,0 +1,38 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pytest
+        run: pytest -v
+
+      - name: Start the API in the background
+        run: python3 api/app.py &
+
+      - name: Wait for the API to be ready
+        run: |
+          for i in $(seq 1 10); do
+            curl -s http://localhost:5000/health && break
+            sleep 1
+          done
+
+      - name: Run smoke tests
+        run: ./scripts/smoke_test.sh
+        
